@@ -19,18 +19,19 @@ m tall.
 m tall.
 */
 
-const markMass1 = 78;
-const markHeight1 = 1.69;
+const markMass = 78;
+const markHeight = 1.69;
+const johnMass = 92;
+const johnHeight = 1.95;
 
-const johnMass1 = 92;
-const johnHeight1 = 1.95;
+// const markMass = 95;
+// const markHeight = 1.88;
+// const johnMass = 85;
+// const johnHeight = 1.76;
 
-const bmiMark1 = markMass1 / markHeight1 ** 2;
-const bmiJohn1 = johnMass1 / johnHeight1 ** 2;
-console.log('bmiMark: ', bmiMark1, 'bmiJohn: ', bmiJohn1)
-
-const markHigherBMI1 = bmiMark1 > bmiJohn1;
-console.log('is mark bmi1 higher', markHigherBMI1);
+const bmiMark = markMass / markHeight ** 2;
+const bmiJohn = johnMass / johnHeight ** 2;
+console.log('bmiMark: ', bmiMark, 'bmiJohn: ', bmiJohn)
 
 //////// Coding Challenge #2
 // Use the BMI example from Challenge #1, and the code you already wrote, and 
@@ -43,8 +44,8 @@ console.log('is mark bmi1 higher', markHigherBMI1);
 // Hint: Use an if/else statement �
 // GOOD LUCK 
 
-if (bmiMark1 > bmiJohn1) {
-    console.log(`Mark's BMI (${bmiMark1.toFixed(1)}) is higher than John's (${bmiJohn1.toFixed(1)}).`);
+if (bmiMark > bmiJohn) {
+    console.log(`Mark's BMI (${bmiMark.toFixed(1)}) is higher than John's (${bmiJohn.toFixed(1)}).`);
 } else {
-    console.log(`John's BMI is higher than Mark's`);
+    console.log(`John's BMI (${bmiJohn.toFixed(1)}) is higher than Mark's (${bmiMark.toFixed(1)})`);
 }
