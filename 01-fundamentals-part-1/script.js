@@ -1,5 +1,5 @@
 /*
-
+/////////// START OF ASSIGNMENTS
 // // lecture: values and variables
 
 // let country = 'Brazil';
@@ -26,18 +26,30 @@ const isIsland = false;
 const birthDate = '08/06/1997';
 console.log(language, birthDate);
 
-population = 222;
 console.log(country, continent, population); 
 
 // lecture: basic operators
 
-console.log('country split in 2, people living in each half', population / 2 );
-console.log('population increased by 1', ++population)
-console.log(population > 6) // does brazil have more people than finland?
-console.log(population > 33)
-const description = `${country} is in ${continent}, and its ${population} milion people speak ${language}`;
-console.log(description);
+// console.log('country split in 2, people living in each half', population / 2 );
+// console.log('population increased by 1', ++population)
+// console.log(population > 6) // does brazil have more people than finland?
+// console.log(population > 33)
+// const description = `${country} is in ${continent}, and its ${population} milion people speak ${language}`;
+// console.log(description);
 
+const worldPopAverage = 33;
+const calcBelowAverage = worldPopAverage - population;
+const calcAboveAverage = population - worldPopAverage;
+
+if (population == worldPopAverage) {
+    console.log(`Brazil's population is on average;`);
+} else if (population > worldPopAverage) {
+    console.log(`Brazil's population is ${calcAboveAverage} million above average`);
+} else {
+    console.log(`Brazil's population is ${calcBelowAverage} million below average`);
+}
+
+/////////// END OF ASSIGNMENTS
 */
 
 
@@ -156,10 +168,50 @@ const averageAge = (ageJonas + ageRuan) / 2
 console.log(ageJonas, ageRuan, averageAge);
 */
 
+/*
+
 const firstName = 'Ruan';
 const job = 'programmer';
 const birthYear = 1997;
 const year = 2022;
 
-const Ruan = "I'm " + firstName + ', a ' + (year - birthYear) + 'years old' + job + '!';
+const Ruan = "I'm " + firstName + ', a ' + (year - birthYear) + ' year old ' + job + '!';
 console.log(Ruan)
+
+const ruanNew = `I'm ${firstName}, a ${year - birthYear} year old ${job}!`
+console.log(ruanNew)
+
+console.log(`Just a regular string...`)
+
+console.log('String with \n\ teste teste \n\ teste testte');
+
+console.log(`
+    String
+    multiple
+    lines
+    oh
+    my
+`);
+
+*/
+
+/*
+const age = 15;
+
+if(age >= 18) {
+    console.log(`Sarah can start driving license 😉`)
+} else {
+    const yearsLeft = 18 - age;
+    console.log(`Sarah is too young 😔 Wait another ${yearsLeft} years.`)
+}
+
+const birthYear = 2021;
+
+let century;
+if(birthYear <= 2000) {
+    century = 20;
+} else {
+    century = 21;
+}
+console.log(century);
+*/
