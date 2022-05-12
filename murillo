@@ -1,0 +1,50 @@
+DROP TABLE IF EXISTS aluno CASCADE;
+DROP TABLE IF EXISTS curso CASCADE;
+DROP TABLE IF EXISTS matricula;
+DROP TABLE IF EXISTS disciplina CASCADE;
+DROP TABLE IF EXISTS cursa;
+DROP TABLE IF EXISTS compoe;
+DROP TABLE IF EXISTS professor;
+DROP TABLE IF EXISTS departamento CASCADE;
+DROP TABLE IF EXISTS pre_req;
+
+CREATE TABLE aluno(cpf char(11) PRIMARY KEY,
+				   nome varchar(80) NOT NULL,
+				   endereco TEXT,
+				   telefone varchar(20),
+				   data_nasc Date NOT NULL);
+				   
+CREATE TABLE curso(codigo SERIAL PRIMARY KEY,
+				   nome varchar(80) NOT NULL,
+				   descricao TEXT,
+				   codigo_dpto TEXT REFERENCES departamento(codigo) NOT NULL);
+				  
+CREATE TABLE matricula(codigo_curso INT REFERENCES curso(codigo) NOT NULL, 
+					   cpf_aluno TEXT REFERENCES aluno(cpf) NOT NULL, 
+					   data_matricula Date NOT NULL);
+					   
+CREATE TABLE disciplina(codigo SERIAL PRIMARY KEY,
+						qtde_creditos TEXT NOT NULL,
+						matricula_prof TEXT NOT NULL);
+						
+CREATE TABLE cursa(cpf_aluno TEXT REFERENCES aluno(cpf) NOT NULL,
+				   codigo_disc INT REFERENCES disciplina(codigo) NOT NULL);
+				   
+CREATE TABLE compoe(codigo_curso INT REFERENCES curso(codigo) NOT NULL,
+					codigo_disc INT REFERENCES disciplina(codigo) NOT NULL);
+
+CREATE TABLE professor(matricula TEXT PRIMARY KEY,
+					   nome varchar(80) NOT NULL,
+					   endereco TEXT,
+					   telefone varchar(20),
+					   data_nasc DATE NOT NULL,
+					   codigo_dpto TEXT REFERENCES departamento(codigo) NOT NULL,
+					   data_contratacao DATE NOT NULL);
+					   
+CREATE TABLE departamento(codigo SERIAL PRIMARY KEY,
+						  nome TEXT);
+						 
+CREATE TABLE pre_req(codigo_disc TEXT REFERENCES disciplina(codigo) NOT NULL,
+					 codigo_disc_dependencia TEXT REFERENCES disciplina(codigo) NOT NULL);				 
+
+				   
