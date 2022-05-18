@@ -213,6 +213,8 @@ const jonas = {
 }
 */
 
+/*
+///// dot vs bracket notation
 const jonas = {
     firstName: 'Jonas',
     lastName: 'Schmedtmann',
@@ -224,3 +226,37 @@ console.log(jonas)
 
 console.log(jonas.lastName)
 console.log(jonas['lastName'])
+
+// const intestedIn = prompt(`What do you want to know about Jonas? choose between firstName, lastName, age, job and friends.`);
+
+// if (jonas[intestedIn]) {
+//     console.log(jonas[intestedIn]);
+// } else {
+//     console.log(`Wrong request! Choose again!`);
+// }
+
+jonas.location = 'Portugal';
+jonas['Twitter'] = '@jonasschmedman';
+console.log(jonas);
+
+// Challenge 
+// 'Jonas has 3 friends, and his best friend is called Michael'
+
+console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`)
+*/
+
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Schmedtmann',
+    birthYear: 1991,
+    job: 'teacher',
+    friends: ['Michael', 'Peter'],
+    hasDrivesLicense: true,
+
+    calcAge: function () {
+        console.log(this)
+        return 2037 - this.birthYear;
+    }
+}
+
+console.log(jonas.calcAge());
