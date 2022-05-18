@@ -1,3 +1,4 @@
+/*
 const calcAverage = (a, b, c) => (a + b + c) / 3;
 
 let averageDolphins = calcAverage(44, 23, 71);
@@ -20,3 +21,15 @@ console.log(checkWinner(averageDolphins, averageKoalas));
 averageDolphins = calcAverage(85, 54, 41);
 averageKoalas = calcAverage(23, 34, 27);
 console.log(checkWinner(averageDolphins, averageKoalas))
+*/
+
+/*
+CHALLENGE #2
+const calcTip = bill => bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+
+const bills = [125, 555, 44];
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])]
+console.log(tips);
+const total = [bills[0] + tips[0],bills[1] + tips[1], bills[2] + tips[2]];
+console.log(total)
+*/

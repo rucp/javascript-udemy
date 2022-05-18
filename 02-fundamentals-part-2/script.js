@@ -118,3 +118,109 @@ const yearsUntilRetirement = function (birthYear, firstName) {
 console.log(yearsUntilRetirement(1997, 'Ruan'));
 console.log(yearsUntilRetirement(1950, 'Mike'));
 */
+
+/*
+//////// Arrays
+const friend1 = 'Michael';
+const friend2 = 'Jonas';
+const friend3 = 'Peter';
+
+// qntd              1          2        3
+// posição array     0          1        2
+const friends = ['Michael', 'Steven', 'Peter'];
+console.log(friends);
+
+console.log(friends[0]); // posição do array
+console.log(friends[2]); // posição do array
+
+console.log(friends.length); // qntd de elementos no array. não confundir com posição do array.
+console.log(friends[friends.length-1]); // última posição do array. (qntd - 1)
+
+friends[2] = 'Jay'; // em arrays, diferente dos dados primitivos, podemos mudar os valores de variáveis q tenham sido definidos como const.
+console.log(friends)
+// friends = ['bob', 'alice'] => this can't be done. we can change one element at the time, but not the entire Array
+
+const firstName = 'Jonas'
+const jonas = [firstName, 'Schmedtmann', 2037 - 1991, 'teacher', friends]; // podemos guardar diferentes valores em um mesmo array.
+
+console.log(jonas);
+console.log(jonas.length);
+
+// exercise
+const calcAge = function(birthYear) {
+    return 2022 - birthYear;
+}
+const years = new Array(1991, 1984, 2008, 2020, 1997);
+
+const age1 = calcAge(years[0]);
+const age2 = calcAge(years[1]);
+const age3 = calcAge(years[years.length-1]);
+console.log(age1, age2, age3)
+
+const ages = new Array(
+                    calcAge(years[0]), 
+                    calcAge(years[1]), 
+                    calcAge(years[years.length-1])
+                    );
+console.log(ages);
+
+*/
+
+/*
+//// basic array operations (methods)
+
+const friends = ['Michael', 'Steven', 'Peter'];
+
+// Add Elements
+const newLenght = friends.push('Jay');
+console.log(friends);
+console.log(newLenght)
+
+friends.unshift('John');
+console.log(friends)
+
+// Remove elements
+friends.pop();  // last
+const popped = friends.pop();
+console.log(popped)
+console.log(friends)
+
+friends.shift(); // first
+console.log(friends);
+
+console.log(friends.indexOf('Steven'));
+console.log(friends.indexOf('Bob'));
+
+friends.push(23);
+console.log(friends.includes('Steven'));
+console.log(friends.includes('Bob'));
+console.log(friends.includes(23)); // true
+
+if(friends.includes('Steven')) {
+    console.log('you have a friend called Steven')
+}
+*/
+
+/*
+//// Introduction to Objects
+
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Schmedtmann',
+    age: 2037 - 1991,
+    job: 'teacher',
+    friends: ['Michael', 'Peter']
+}
+*/
+
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Schmedtmann',
+    age: 2037 - 1991,
+    job: 'teacher',
+    friends: ['Michael', 'Peter']
+}
+console.log(jonas)
+
+console.log(jonas.lastName)
+console.log(jonas['lastName'])
