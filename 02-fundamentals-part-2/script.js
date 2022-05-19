@@ -338,3 +338,52 @@ for(let i = 0; i < jonas.length; i++) {
     console.log(jonas[i], typeof jonas[i]);
 };
 */
+
+/*
+/// looping backwards 
+const jonas = [
+    'Jonas',
+    'Schmedtmann',
+    2037 - 1991,
+    'teacher',
+    ['Michael', 'Peter', 'Steven'],
+    true,
+    'Portugal'
+];
+
+// 0, 1, ..., 4
+// 4, 3, ..., 0
+
+for(let i = jonas.length-1; i >= 0; i--) {
+    console.log(i, jonas[i])
+}
+
+/// loops in loops
+
+for (let exercise = 1; exercise < 4; exercise++) {
+    console.log(`------ Starting exercise ${exercise}`);
+
+    for (let rep = 1; rep < 6; rep++) {
+        console.log(`Repetition ${rep} `)
+    }
+}
+*/
+
+/// while loop
+// for(let rep = 1; rep <= 10; rep = rep + 2) {
+//     console.log(`Lifting weight repetition ${rep} 🤸‍♀️`);
+// }
+
+// let rep = 1;
+// while(rep <= 10) {
+//     console.log(`Lifting weight repetition ${rep} 🤸‍♀️`);
+//     rep++
+// }
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+
+while (dice !== 6) {
+    console.log(`You rolled a ${dice}`);
+    dice = Math.trunc(Math.random() * 6) + 1;
+    if(dice === 6) console.log('Looping is about to end...')
+}
