@@ -245,6 +245,8 @@ console.log(jonas);
 console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`)
 */
 
+/*
+/// objetos
 const jonas = {
     firstName: 'Jonas',
     lastName: 'Schmedtmann',
@@ -253,10 +255,86 @@ const jonas = {
     friends: ['Michael', 'Peter'],
     hasDrivesLicense: true,
 
+    // calcAge: function (birthYear) {
+    //     return 2037 - birthYear;
+    // }
+
     calcAge: function () {
-        console.log(this)
-        return 2037 - this.birthYear;
+        this.age = 2037 - this.birthYear;
+        return this.age;
+    },
+
+    getSummary: function() {
+        return `${this.firstName} is a ${this.calcAge()}-year old ${this.job}, and he has ${this.hasDrivesLicense? `a`:`no`} driver's license`
     }
-}
+};
 
 console.log(jonas.calcAge());
+console.log(jonas.age); 
+
+// Challenge
+// "Jonas is  a 46-year old teacher and he has a/no driver's license"
+console.log(jonas.getSummary())
+
+*/
+
+// console.log('Lifting weight repetition 🤸‍♀️');
+// console.log('Lifting weight repetition 🤸‍♀️');
+// console.log('Lifting weight repetition 🤸‍♀️');
+
+/*
+// for loops keeps running while condition is true
+for(let rep = 1; rep <= 10; rep = rep + 2) {
+    console.log(`Lifting weight repetition ${rep} 🤸‍♀️`);
+}
+*/
+
+/*
+/// looping arrays, breaking and continuing
+const jonas = [
+    'Jonas',
+    'Schmedtmann',
+    2037 - 1991,
+    'teacher',
+    ['Michael', 'Peter', 'Steven'],
+    'Portugal',
+    true
+];
+const types = new Array;
+
+for(let i = 0; i < jonas.length; i++) {
+    // reading from jonas array
+    console.log(jonas[i], typeof jonas[i]);
+
+    // filling types array
+    // types[i] = typeof jonas[i];
+    types.push(typeof jonas[i])
+};
+
+console.log(types);
+
+
+const years = [1972, 1978, 1994, 1997, 2003, 2021];
+const ages = new Array;
+
+for(let i = 0; i < years.length; i++) {
+    ages.push(2022 - years[i]);
+}
+console.log(ages);
+
+
+// continue and break
+console.log('------- ONLY STRINGS --------')
+for(let i = 0; i < jonas.length; i++) {
+    if(typeof jonas[i] !== 'string') continue;
+
+    console.log(jonas[i], typeof jonas[i]);
+};
+
+console.log('------- BREAK WITH NUMBER --------')
+for(let i = 0; i < jonas.length; i++) {
+    if(typeof jonas[i] === 'number') break;
+
+    console.log(jonas[i], typeof jonas[i]);
+};
+*/

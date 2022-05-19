@@ -33,3 +33,38 @@ console.log(tips);
 const total = [bills[0] + tips[0],bills[1] + tips[1], bills[2] + tips[2]];
 console.log(total)
 */
+
+
+/// CHALLENGE #3
+
+const mark = {
+    fullName: 'Mark Miller',
+    mass: 78,
+    height: 1.69,
+
+    calcBMI: function () {
+        this.BMI = this.mass / this.height ** 2;
+        return this.BMI;
+    }
+}
+mark.calcBMI();
+
+const john = {
+    fullName: 'John Smith',
+    mass: 92,
+    height: 1.95,
+
+    calcBMI: function () {
+        this.BMI = this.mass / this.height ** 2;
+        return this.BMI;
+    }
+}
+john.calcBMI();
+
+if (mark.BMI > john.BMI) {
+    console.log(`${mark.fullName} (${mark.BMI.toFixed(2)}) is higher than ${john.fullName} (${john.BMI.toFixed(2)})`)
+} else if (john.BMI > mark.BMI) {
+    console.log(`${john.fullName} (${john.BMI.toFixed(2)}) is higher than ${mark.fullName} (${mark.BMI.toFixed(2)})`)
+} else {
+    console.log('They have the same BMI')
+}
