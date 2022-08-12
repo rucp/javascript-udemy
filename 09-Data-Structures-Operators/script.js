@@ -143,3 +143,18 @@ console.log(i, j, k);
 const [p = 1, q = 1, r = 1] = [8];
 console.log(p, q, r);
 */
+
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+    console.log(sum);
+  }
+};
+
+add(2, 4);
+add(1, 4, 6, 8, 12);
+add(1, 5, 8, 9, 1, 12);
+
+const x = [23, 5, 7];
+add(...x);
