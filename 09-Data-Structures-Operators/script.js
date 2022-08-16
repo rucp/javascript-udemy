@@ -4,6 +4,21 @@
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
+const openingHours = {
+  thu: {
+    open: 8,
+    close: 22,
+  },
+  fri: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
 // Data needed for first part of the section
 const restaurant = {
   name: 'Classico Italiano',
@@ -12,20 +27,7 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
+  openingHours: openingHours,
 
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
@@ -42,28 +44,41 @@ const restaurant = {
   },
 };
 
+// if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+
+// console.log(restaurant.openingHours.mon?.open);
+
+// if (restaurant.openingHours.fri) console.log(restaurant.openingHours.fri.open);
+
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+for (const day of days) {
+  // console.log(day);
+  const open = restaurant.openingHours[day]?.open || 'closed';
+  // console.log(`On ${day}, we open at ${open}`);
+}
+
 const arr = [7, 8, 9];
 const barNewArr = [1, 2, arr[0], arr[1], arr[2]];
-console.log(barNewArr);
+// console.log(barNewArr);
 
 const newArr = [1, 2, ...arr];
-console.log(newArr);
+// console.log(newArr);
 
 const newMenu = [...restaurant.mainMenu, 'Gnocci'];
-console.log(newMenu);
+// console.log(newMenu);
 
 // copy array
 const mainMenuCopy = [...restaurant.mainMenu];
 const starterMenuCopy = [...restaurant.starterMenu];
 
 // join 2 arrays or more
-const menu = [...mainMenuCopy, ...starterMenuCopy];
-console.log(menu);
+// const menu = [...mainMenuCopy, ...starterMenuCopy];
+// console.log(menu);
 
 // iterables: arrays, strings, maps, sets, not objects
 const str = 'Jonas';
 const letters = [...str, '', 'S'];
-console.log(letters);
+// console.log(letters);
 
 // real world example
 // const ingredients = [
@@ -76,12 +91,12 @@ console.log(letters);
 
 // obj
 const newRestaurant = { foundedIn: 1997, ...restaurant, founder: 'Giusseppe' };
-console.log(newRestaurant);
+// console.log(newRestaurant);
 
 const restaurantCopy = { ...restaurant };
 restaurant.name = 'Ristorante Roma';
-console.log(restaurantCopy.name);
-console.log(restaurant.name);
+// console.log(restaurantCopy.name);
+// console.log(restaurant.name);
 
 /*
 ////////////////////////////////////
@@ -179,5 +194,26 @@ res2.numGuests ??= 10;
 res1.owner &&= '<ANONYMOUS>';
 res2.owner &&= '<ANONYMOUS>';
 
-console.log(res1);
-console.log(res2);
+// console.log(res1);
+// console.log(res2);
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+// for (const item of menu) console.log(item);
+
+for (const item of menu.entries()) {
+  // console.log(item);
+}
+
+// property VALUES
+const values = Object.values(openingHours);
+// console.log('property values', values);
+
+// entire object
+const entries = Object.entries(openingHours);
+console.log('entire object', entries);
+
+// [key, value]
+for (const [day, { open, close }] of entries) {
+  console.log(`On ${day} we open at ${open} and close at ${close}`);
+}
