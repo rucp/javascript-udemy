@@ -174,46 +174,88 @@ console.log(p, q, r);
 // const x = [23, 5, 7];
 // add(...x);
 
-const res1 = {
-  name: 'Capri',
-  // numGuests: 20,
-  numGuests: 0,
-};
+// const res1 = {
+//   name: 'Capri',
+//   // numGuests: 20,
+//   numGuests: 0,
+// };
 
-const res2 = {
-  name: 'Capri',
-  owner: 'Giovanni Rosi',
-};
+// const res2 = {
+//   name: 'Capri',
+//   owner: 'Giovanni Rosi',
+// };
 
-// res1.numGuests = res1.numGuests || 10;
-// res2.numGuests = res2.numGuests || 10;
+// // res1.numGuests = res1.numGuests || 10;
+// // res2.numGuests = res2.numGuests || 10;
 
-res1.numGuests ??= 10;
-res2.numGuests ??= 10;
+// res1.numGuests ??= 10;
+// res2.numGuests ??= 10;
 
-res1.owner &&= '<ANONYMOUS>';
-res2.owner &&= '<ANONYMOUS>';
+// res1.owner &&= '<ANONYMOUS>';
+// res2.owner &&= '<ANONYMOUS>';
 
-// console.log(res1);
-// console.log(res2);
+// // console.log(res1);
+// // console.log(res2);
 
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
-// for (const item of menu) console.log(item);
+// // for (const item of menu) console.log(item);
 
-for (const item of menu.entries()) {
-  // console.log(item);
-}
+// for (const item of menu.entries()) {
+//   // console.log(item);
+// }
 
-// property VALUES
-const values = Object.values(openingHours);
-// console.log('property values', values);
+// // property VALUES
+// const values = Object.values(openingHours);
+// // console.log('property values', values);
 
-// entire object
-const entries = Object.entries(openingHours);
-console.log('entire object', entries);
+// // entire object
+// const entries = Object.entries(openingHours);
+// console.log('entire object', entries);
 
-// [key, value]
-for (const [day, { open, close }] of entries) {
-  console.log(`On ${day} we open at ${open} and close at ${close}`);
-}
+// // [key, value]
+// for (const [day, { open, close }] of entries) {
+//   console.log(`On ${day} we open at ${open} and close at ${close}`);
+// }
+
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+
+console.log(ordersSet);
+
+console.log(new Set('Ruan')); // {"R", "u", "a", "n"}
+
+console.log(ordersSet.size); // 3 => tamanho do Set
+console.log(ordersSet.has('Pizza')); // true => retorna se o elemento
+// existe ou não no Set
+ordersSet.add('Garlic Bread'); // its added to the Set
+ordersSet.add('Garlic Bread'); // this one is ignored
+ordersSet.delete('Risotto'); // deletes de element in the Set
+// ordersSet.clear(); // limpar todos os elementos do Set
+
+for (const order of ordersSet) console.log(order);
+
+// What will be logged in first example and in second example?
+
+let var1;
+console.log(var1);
+console.log(typeof var1);
+
+let var2 = null;
+console.log(var2);
+console.log(typeof var2);
+
+// Type of variable will be an Object, because there is no such type as null
+
+// Undefined means that that variable is declared, but the value is not assigned yet inside this variable.
+
+// Null in JavaScript is an assignment value, which means it's a value we can assign inside the variable in our code.
+
+// But what is really the difference between null and undefined?
+// Em ambos os casos, significa que o valor da variável ainda não existe. Nós podemos usar ambos os casos, vai depender na verdade do estilo de código pessoal, ou o que a equipe prefere.
