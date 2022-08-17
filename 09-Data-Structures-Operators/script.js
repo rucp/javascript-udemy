@@ -290,6 +290,8 @@ console.log(rest.size); // show how many items there is
 // rest.clear(); // removes all the elements
 */
 
+/*
+
 const question = new Map([
   ['question', 'What is the best programming language in the world?'],
   [1, 'C'],
@@ -333,3 +335,34 @@ task = new Map([
   ['date', 'today'],
   [false, 'Start coding'],
 ]);
+ */
+
+const airline = 'LATAM OMG TESTING';
+const plane = 'A320';
+
+// console.log(plane[0]); // show the letter in the position
+// console.log(airline.length); // show the length of the string
+
+// console.log(airline.indexOf('L')); // 0
+// console.log(airline.lastIndexOf('M')); // 4
+// console.log(airline.indexOf('LATAM'));
+
+// console.log(airline.slice(4));
+// console.log(airline.slice(1, 4)); //
+
+// console.log(airline.slice(0, airline.indexOf(' ')));
+// console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+// console.log(airline.slice(-2));
+// console.log(airline.slice(-2));
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+  const s = seat.slice(-1);
+  console.log(s);
+  console.log(
+    s === 'B' || s === 'E' ? `it's a middle seat 😥` : `you got lucky, not a middle seat 😎`
+  );
+};
+
+checkMiddleSeat('11C');
