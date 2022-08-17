@@ -243,13 +243,13 @@ for (const order of ordersSet) console.log(order);
 
 // What will be logged in first example and in second example?
 
-let var1;
-console.log(var1);
-console.log(typeof var1);
+// let var1;
+// console.log(var1);
+// console.log(typeof var1);
 
-let var2 = null;
-console.log(var2);
-console.log(typeof var2);
+// let var2 = null;
+// console.log(var2);
+// console.log(typeof var2);
 
 // Type of variable will be an Object, because there is no such type as null
 
@@ -259,3 +259,77 @@ console.log(typeof var2);
 
 // But what is really the difference between null and undefined?
 // Em ambos os casos, significa que o valor da variável ainda não existe. Nós podemos usar ambos os casos, vai depender na verdade do estilo de código pessoal, ou o que a equipe prefere.
+
+/*
+const rest = new Map();
+rest.set('name', 'Clasico Italiano');
+rest.set(1, 'Firenze, Italy');
+console.log(rest.set(2, 'Lisbon, Portugal'));
+
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open :D')
+  .set(false, 'We are closed :/');
+
+console.log(rest.get('name'));
+console.log(rest.get(true));
+console.log(rest.get(1));
+
+const time = 8;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+console.log(rest.has('categories'));
+rest.delete(2); // deletes the second location
+
+rest.set([1, 2], 'Test');
+console.log(rest);
+console.log(rest.size); // show how many items there is
+
+// rest.clear(); // removes all the elements
+*/
+
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['Correct', 3],
+  [true, 'Correct'],
+  [false, 'Try again!'],
+]);
+
+console.log(question);
+
+// // convert object to map
+const hoursMap = new Map(Object.entries(anyObject));
+console.log(hoursMap);
+
+// Quiz App
+console.log(question.get('question'));
+
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer: ${key}: ${value}`);
+}
+
+const answer = Number(prompt('Your answer'));
+
+console.log(question.get(question.get('Correct') === answer)); // returns true or false
+
+// convert map to array
+console.log([...question]);
+console.log(...question.keys());
+console.log(...question.values());
+
+task = {
+  task: 'Code',
+  date: 'today',
+  repeat: true,
+};
+
+task = new Map([
+  ['task', 'Cide'],
+  ['date', 'today'],
+  [false, 'Start coding'],
+]);
