@@ -99,7 +99,6 @@ document.body.addEventListener('click', high5); // each time is clicked, the fun
 
 */
 
-
 /*
 // // 132
 
@@ -116,3 +115,52 @@ greeterlley('Murillo');
 greet('Hello')('Ruan');
 
 */
+
+// // 133
+const latam = {
+  airline: 'Latam',
+  iataCode: 'LA',
+  bookings: [],
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
+
+// the CALL method
+latam.book('5653', 'Ruan');
+latam.book('9283', 'John');
+console.log(latam);
+
+const eurowings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
+
+const book = latam.book;
+
+// book(23, 'Sarah Williams'); // does not work
+book.call(eurowings, 23, 'Sarah Williams');
+console.log(eurowings);
+
+book.call(latam, 294, 'Mary Cooper');
+console.log(latam);
+
+const swiss = {
+  airline: 'Swiss Air Lines',
+  iataCode: 'LX',
+  bookings: [],
+};
+
+book.call(swiss, '1098', 'Jovi Pardal');
+console.log(swiss);
+
+// the APPLY method ==> its not used in the modern JS
+const flightData = [565, 'George'];
+book.apply(swiss, flightData);
+console.log(swiss);
+
+book.call(swiss, ...flightData) // ==> better way
