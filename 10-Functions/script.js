@@ -116,6 +116,7 @@ greet('Hello')('Ruan');
 
 */
 
+/*
 // // 133
 const latam = {
   airline: 'Latam',
@@ -163,4 +164,92 @@ const flightData = [565, 'George'];
 book.apply(swiss, flightData);
 console.log(swiss);
 
-book.call(swiss, ...flightData) // ==> better way
+book.call(swiss, ...flightData); // ==> better way
+*/
+
+/*
+// // 134
+
+// Bind method
+// Just like the call method, bind also allows us to manually set the "this" keyword for any function call.
+// Now, the difference is that bind does not immeadiately call the function. Instead, it returns a new function where the "this" keyword is bound.
+// So it sets to whatever value we pass into bind.
+
+// book.call(eurowings, 23, 'Sarah Williams');
+
+const bookEW = book.bind(eurowings);
+const bookLA = book.bind(latam);
+
+bookEW(23, 'Steven Williams');
+
+const bookEW23 = book.bind(eurowings, 23);
+bookEW23('João Pardal');
+
+// with event listeners
+latam.planes = 300;
+latam.buyPlane = function () {
+  console.log(this);
+  this.planes++;
+  console.log(this.planes); // NaN => the THIS keyword is the button element. in a event handler function, the THIS keyword alaways points to the element on which that handler is attached to.
+};
+document
+  .querySelector('.buy')
+  .addEventListener('click', latam.buyPlane.bind(latam));
+
+// partial application
+
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+// addVAT = value -> value + value * 0.23
+
+console.log(addVAT(100));
+console.log(addVAT(300));
+
+// chalenge => function returning another function
+
+const addTaxRate = function (rate) {
+  return function (value) {
+    return value + value * rate;
+  };
+};
+
+const addVAT2 = addTaxRate(0.23);
+console.log(addVAT2(100));
+
+(function () {
+  console.log(`This will never run again!`);
+  const isPrivate = 23;
+})();
+
+(() => console.log(`This will never run again!`))();
+
+*/
+
+// 137
+
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking(); // once this function is executed, it is not longer on the stack. but still the inner function inside secureBooking, which is the booker function, is still able to access the passengerCount.
+// what makes this possible is a CLOSURE.
+// we can say that a closure is makes a function "remember" all the variables that existed at the function's birthplace essentially
+
+booker(); // 1 passengers
+booker(); // 2 passengers
+booker(); // 3 passengers
+
+// Any function always has access to the variable enviroment of the execution context in which the function was created.
+
+// Now, in the case of "booker', this function was created in the execution context of "secureBooking", which was popped off the stack previously, remember?
+
+// So, therefore the Booker function will get access to this variable environment which contains the 'passengerCount' variable. And this is how the function will be able to read and manipulate the 'passengerCounte' variable.
+
+// And so, it's this connection that we call closure.
