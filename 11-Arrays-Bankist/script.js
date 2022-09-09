@@ -71,7 +71,7 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
@@ -138,3 +138,28 @@ console.log(arr.at(-1)); // better way with AT
 // OBS: AT also works in strings.
 */
 
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) {
+    console.log(`Movement ${i + 1}: You deposited ${movement}`);
+  } else {
+    console.log(`Momevent ${i + 1}: You withdrew ${Math.abs(movement)}`);
+  }
+}
+
+console.log('---------- FOR EACH -------------');
+// forEach => forEach is technically a higher order function as we learned in the last section, which requires a callback function, in order to tell it what to do.
+// so... its the forEach method here that will call this callback function
+movements.forEach(function (movement, i, arr) {
+  if (movement > 0) {
+    console.log(`Movement ${i + 1}: You deposited ${movement}`);
+  } else {
+    console.log(`Momevent ${i + 1}: You withdrew ${Math.abs(movement)}`);
+  }
+});
+
+/* When should you use forEach and when should you use the for of loop?
+
+One fundamental difference between the two of them is that you cannot break out of a forEach loop. So the continue and break statements do not work in a forEach loop at AbortController. So instead, the forEach will always loop over the entire Array.
+*/
