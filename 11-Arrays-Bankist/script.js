@@ -65,12 +65,6 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // LECTURES
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
-
 // const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
@@ -138,6 +132,8 @@ console.log(arr.at(-1)); // better way with AT
 // OBS: AT also works in strings.
 */
 
+/*
+
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 for (const [i, movement] of movements.entries()) {
@@ -163,3 +159,27 @@ movements.forEach(function (movement, i, arr) {
 
 One fundamental difference between the two of them is that you cannot break out of a forEach loop. So the continue and break statements do not work in a forEach loop at AbortController. So instead, the forEach will always loop over the entire Array.
 */
+
+// 145.
+
+// MAP
+
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+currencies.forEach(function (value, key, map) {
+  console.log(`${key} : ${value}`);
+});
+
+// SET
+
+const currenciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
+console.log(currenciesUnique);
+currenciesUnique.forEach(function (value, key, set) {
+  console.log(`${key} : ${value}`);
+  // why the key is the same as the value?
+  // a set does't have keys, and it doesn't have indexes either, so theres no value that would make sense for the key. (the key here doesn't make sense at all) => but you ALWAYS have to put the parameter, even if you don't use.
+});
