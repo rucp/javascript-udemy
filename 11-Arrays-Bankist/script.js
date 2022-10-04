@@ -65,7 +65,7 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // LECTURES
 
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
@@ -160,6 +160,7 @@ movements.forEach(function (movement, i, arr) {
 One fundamental difference between the two of them is that you cannot break out of a forEach loop. So the continue and break statements do not work in a forEach loop at AbortController. So instead, the forEach will always loop over the entire Array.
 */
 
+/*
 // 145.
 
 // MAP
@@ -183,3 +184,81 @@ currenciesUnique.forEach(function (value, key, set) {
   // why the key is the same as the value?
   // a set does't have keys, and it doesn't have indexes either, so theres no value that would make sense for the key. (the key here doesn't make sense at all) => but you ALWAYS have to put the parameter, even if you don't use.
 });
+
+*/
+
+/////////////////////////// CHALLENGE #1
+
+// Coding Challenge #1
+
+// Julia and Kate are doing a study on dogs. So each of them asked 5 dog owners
+// about their dog's age, and stored the data into an array (one array for each). For
+// now, they are just interested in knowing whether a dog is an adult or a puppy.
+// A dog is an adult if it is at least 3 years old, and it's a puppy if it's less than 3 years
+// old.
+
+// Your tasks:
+
+// Create a function 'checkDogs', which accepts 2 arrays of dog's ages
+// ('dogsJulia' and 'dogsKate'), and does the following things:
+
+// 1. Julia found out that the owners of the FIRST and the LAST TWO dogs actually have
+// cats, not dogs! So create a shallow copy of Julia's array, and remove the cat
+// ages from that copied array (because it's a bad practice to mutate function
+// parameters)
+
+// 2. Create an array with both Julia's (corrected) and Kate's data
+
+// 3. For each remaining dog, log to the console whether it's an adult ("Dog number 1
+// is an adult, and is 5 years old") or a puppy ("Dog number 2 is still a puppy
+// 🐶 ")
+
+// 4. Run the function for both test datasets
+
+// Test data:
+// § Data 1: Julia's data [3, 5, 2, 12, 7], Kate's data [4, 1, 15, 8, 3]
+// § Data 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
+
+// Hints: Use tools from all lectures in this section so far 😉
+
+/*
+
+const checkDogs = (dogsJulia, dogsKate) => {
+  const copyJulia = dogsJulia.slice(1, -2);
+
+  const arrDogs = dogsKate.concat(copyJulia);
+
+  arrDogs.forEach(function (curr, i) {
+    const adultOrPuppy = curr >= 3 ? 'an adult' : 'a puppy';
+
+    console.log(
+      `Dog number ${i + 1} is ${adultOrPuppy}, and its ${curr} years old`
+    );
+  });
+};
+checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+
+*/
+
+// 150
+/*
+
+const eurToUsd = 1.1;
+
+const movementsUSD = movements.map(mov => mov * eurToUsd);
+
+console.log(movements);
+console.log(movementsUSD);
+
+// for of just for fun
+const movementsUSDfor = [];
+for (const mov of movements) movementsUSDfor.push(mov * eurToUsd);
+console.log(movementsUSDfor);
+
+const movementsDescriptions = movements.map(
+  (mov, i) =>
+    `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${mov}`
+);
+console.log(movementsDescriptions);
+*/
+
