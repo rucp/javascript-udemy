@@ -240,7 +240,7 @@ checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 
 */
 
-// 150
+// 150. the Map method
 /*
 
 const eurToUsd = 1.1;
@@ -262,3 +262,41 @@ const movementsDescriptions = movements.map(
 console.log(movementsDescriptions);
 */
 
+// 152. the filter method
+
+/*
+const deposits = movements.filter(function (mov) {
+  return mov > 0;
+});
+console.log(deposits);
+console.log(movements);
+
+const depositsFor = [];
+for (const mov of movements) if (mov > 0) depositsFor.push(mov);
+console.log(depositsFor);
+
+const withdrawals = movements.filter(mov => mov < 0);
+console.log(withdrawals);
+*/
+
+// 153. Reduce
+
+console.log(movements);
+
+// acumulator => snowball
+const balance = movements.reduce((acc, curr) => acc + curr, 0);
+console.log(balance);
+
+let balance2 = 0;
+for (const mov of movements) balance2 += mov;
+console.log(balance2);
+
+// maximum value
+const max = movements.reduce((acc, mov) => {
+  if (acc > mov) {
+    return acc;
+  } else {
+    return mov;
+  }
+}, movements[0]);
+console.log(max);
